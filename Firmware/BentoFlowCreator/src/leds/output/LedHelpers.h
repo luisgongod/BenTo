@@ -9,7 +9,8 @@
 #endif // 8266/32
 #else
 #endif
-#include "FastLED/FastLED.h"
+#include <FastLED.h>
+// #include "FastLED/FastLED.h"
 
 class LedHelpers
 {

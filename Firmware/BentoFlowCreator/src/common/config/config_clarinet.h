@@ -5,8 +5,8 @@
 #define ESP32
 
 // main leds config
-#define LED_COUNT 61
-#define LED_DATA_PIN 4
+#define LED_COUNT 64
+#define LED_DATA_PIN 21
 #define LED_TYPE    WS2812B
 #define LED_COLOR_ORDER GRB
 

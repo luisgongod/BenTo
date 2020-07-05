@@ -3,8 +3,10 @@
 #include "../../common/Common.h"
 
 #include <WiFiUdp.h>
-#include "OSC/OSCMessage.h"
-#include "OSC/OSCBoards.h"
+// #include "OSC/OSCMessage.h"
+// #include "OSC/OSCBoards.h"
+#include <OSCBoards.h>
+#include <OSCMessage.h>
 
 #ifdef ESP32
 #include <ESPmDNS.h>

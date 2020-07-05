@@ -3,7 +3,8 @@
 
 #include "../LedMode.h"
 #include "../../files/FileManager.h"
-#include "../../common/ArduinoJson/ArduinoJson.h"
+// #include "../../common/ArduinoJson/ArduinoJson.h"
+#include <ArduinoJson.h>
 
 #ifdef LED_COUNT
 

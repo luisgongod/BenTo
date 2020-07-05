@@ -32,7 +32,8 @@
 #endif
 
 #include "Macro.h"
-#include "../ArduinoJson/ArduinoJson.h"
+// #include "../ArduinoJson/ArduinoJson.h"
+#include <ArduinoJson.h>
 #include <map>
 
 class SettingsManager {
