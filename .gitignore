@@ -89,3 +89,6 @@ Package/BenTo\.pkg
 site/
 
 BenTo-win-x64-bleedingedge.exe
+
+#Custom luisgongod gitignores
+*_autosave_*
