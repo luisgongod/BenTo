@@ -2,14 +2,15 @@
 
 //  #define CREATOR_PROTO_V0
 //  #define CREATOR_PROTO_V1
-  // #define CREATOR_PROTO_V2
+//  #define CREATOR_PROTO_V2
 //  #define LT_BALL
 //  #define LT_HOOP
- #define CLARINET
+//  #define CLARINET
 //  #define GLOVE
 //  #define GENERIC_PWM
 //  #define DMX
-//    #define DRESS
+//  #define DRESS
+#define M5
 
 #if defined CREATOR_PROTO_V0
 #include "config_protov0.h"
@@ -31,6 +32,8 @@
 #include "config_dmx.h"
 #elif defined DRESS
 #include "config_dress.h"
+#elif defined M5
+#include "config_m5.h"
 #endif
 
 #ifdef LED_INVERT_DIRECTION
