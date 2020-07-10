@@ -39,4 +39,8 @@ public:
 
 
     bool handleCommand(String command, var * data, int numData) override;
+
+    float pitch = 0.0F;
+    float roll  = 0.0F;
+    float yaw   = 0.0F;
 };

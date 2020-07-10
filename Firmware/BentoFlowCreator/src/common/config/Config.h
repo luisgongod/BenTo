@@ -10,7 +10,8 @@
 //  #define GENERIC_PWM
 //  #define DMX
 //  #define DRESS
-#define M5
+// #define M5
+#define M5Stick
 
 #if defined CREATOR_PROTO_V0
 #include "config_protov0.h"
@@ -34,6 +35,8 @@
 #include "config_dress.h"
 #elif defined M5
 #include "config_m5.h"
+#elif defined M5Stick
+#include "config_m5stick.h"
 #endif
 
 #ifdef LED_INVERT_DIRECTION

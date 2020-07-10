@@ -1,5 +1,10 @@
 #include "IMUManager.h"
 
+#ifdef HAS_M5_IMU
+  // #define M5STACK_MPU6886 
+  #include <M5StickC.h>
+#endif
+
 const String IMUEvent::eventNames[IMUEvent::TYPES_MAX] { "orientation","shock", "freefall" };
 
 IMUManager::IMUManager() : Component("imu"),
@@ -30,6 +35,7 @@ void IMUManager::init()
 #ifdef HAS_IMU
 
   NDBG("Init");
+  
   if(isConnected) return;
 
   Wire.begin(SDA_PIN, SCL_PIN);
@@ -50,6 +56,15 @@ void IMUManager::init()
 
   isConnected = true;
   NDBG("Imu is connected.");
+#endif
+
+#ifdef HAS_M5_IMU
+  NDBG("M5 Init");
+  M5.begin();
+  M5.IMU.Init();
+
+  isConnected = true;
+  NDBG("M5 Imu is connected.");
 #endif
 
 }
@@ -77,6 +92,27 @@ void IMUManager::update()
   }
 #endif
 
+#ifdef HAS_M5_IMU
+
+  M5.IMU.getAhrsData(&pitch,&roll,&yaw);
+
+  // M5.IMU.getAccelData(&pitch,&roll,&yaw);
+
+  orientation[0] = yaw;
+  orientation[1] = pitch;
+  orientation[2] = roll;
+  
+  long curTime = millis();
+  if (curTime > timeSinceOrientationLastSent + orientationSendTime)
+  {
+
+    DBG(String(orientation[0])+" "+String(orientation[1])+" "+String(orientation[2]));
+    sendEvent(IMUEvent(IMUEvent::OrientationUpdate));
+    timeSinceOrientationLastSent = curTime;
+  }
+
+
+#endif
 }
 
 void IMUManager::setEnabled(bool value)
@@ -89,6 +125,7 @@ bool IMUManager::handleCommand(String command, var *data, int numData)
 {
   if(checkCommand(command, "enabled", numData, 1))
   {
+    
     setEnabled(data[0].intValue());
     return true;
   }else if(checkCommand(command, "updateRate", numData, 1))
