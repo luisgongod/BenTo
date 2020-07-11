@@ -1,9 +1,8 @@
 #include "IMUManager.h"
 
-#ifdef HAS_M5_IMU
-  // #define M5STACK_MPU6886 
-  #include <M5StickC.h>
-#endif
+// #ifdef HAS_M5_IMU
+//   #include <M5StickC.h>
+// #endif
 
 const String IMUEvent::eventNames[IMUEvent::TYPES_MAX] { "orientation","shock", "freefall" };
 
@@ -58,10 +57,8 @@ void IMUManager::init()
   NDBG("Imu is connected.");
 #endif
 
-#ifdef HAS_M5_IMU
-  NDBG("M5 Init");
-  M5.begin();
-  M5.IMU.Init();
+#ifdef HAS_M5_IMU  
+  imu6886.Init();
 
   isConnected = true;
   NDBG("M5 Imu is connected.");
@@ -94,7 +91,7 @@ void IMUManager::update()
 
 #ifdef HAS_M5_IMU
 
-  M5.IMU.getAhrsData(&pitch,&roll,&yaw);
+  imu6886.getAhrsData(&pitch,&roll,&yaw);
 
   // M5.IMU.getAccelData(&pitch,&roll,&yaw);
 

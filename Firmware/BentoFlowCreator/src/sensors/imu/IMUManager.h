@@ -4,6 +4,10 @@
 // #include "Adafruit_BNO055/Adafruit_BNO055.h"
 #include <Adafruit_BNO055.h>
 
+#ifdef HAS_M5_IMU
+    #include "MPU6886/MPU6886.h"
+#endif
+
 class IMUEvent
 {
 public:
@@ -22,6 +26,10 @@ public:
 
 #ifdef HAS_IMU
     Adafruit_BNO055 bno;
+#endif
+
+#ifdef HAS_M5_IMU
+    MPU6886 imu6886;
 #endif
 
     bool isConnected;
