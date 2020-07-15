@@ -11,7 +11,8 @@
 //  #define DMX
 //  #define DRESS
 // #define M5
-#define M5Stick
+// #define M5Stick
+#define DEVKIT1
 
 #if defined CREATOR_PROTO_V0
 #include "config_protov0.h"
@@ -37,6 +38,8 @@
 #include "config_m5.h"
 #elif defined M5Stick
 #include "config_m5stick.h"
+#elif defined DEVKIT1
+#include "config_devkit1.h"
 #endif
 
 #ifdef LED_INVERT_DIRECTION

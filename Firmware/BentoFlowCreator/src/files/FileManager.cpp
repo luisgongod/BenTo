@@ -47,14 +47,23 @@ void FileManager::init()
     digitalWrite(SD_EN, LOW);
 #endif
 
+
+// Dont like this solution, and it works for M5
+#ifndef DEVKIT1
     pinMode(SD_SCK, INPUT_PULLUP);
     pinMode(SD_MISO, INPUT_PULLUP);
     pinMode(SD_MOSI, INPUT_PULLUP);
     pinMode(SD_CS, INPUT_PULLUP);
 
     spiSD.begin(SD_SCK, SD_MISO, SD_MOSI, SD_CS); //SCK,MISO,MOSI,ss
-
     if (SD.begin(SD_CS, spiSD, SDSPEED))
+#endif
+
+#ifdef DEVKIT1
+    if (SD.begin())
+#endif
+    
+    
     {
         NDBG("SD Card initialized.");
         listDir("/", 0);
