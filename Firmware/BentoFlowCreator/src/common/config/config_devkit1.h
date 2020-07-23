@@ -9,7 +9,7 @@
 #endif
 
 // main leds config
-#define LED_COUNT 60
+#define LED_COUNT 120
 #define LED_DATA_PIN 26
 #define LED_TYPE    WS2812B
 #define LED_COLOR_ORDER GRB
