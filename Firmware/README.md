@@ -4,10 +4,10 @@ Some add-ons, Work in progress to increase the library of devices that can be us
 
 ## Devices tested (mostly)
 
-- M5 Stack family
-    - M5 Core Grey 
-    - M5 Stick C
-    - Atom Matrix
+- M5 Stack family (https://docs.m5stack.com/#/) 
+    - M5 Core Grey (https://github.com/m5stack/M5Stack)
+    - M5 Stick C (https://github.com/m5stack/M5StickC)
+    - Atom Matrix (https://github.com/m5stack/M5Atom)
     - Atom lite
 
 - DOIT ESP32 DEVKIT V1
